@@ -71,7 +71,8 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   margin-left: -0.04em;
 }
 .wordmark .line { display: flex; justify-content: space-between; overflow: hidden; padding-top: .06em; }
-.wordmark .line > span { display: inline-block; transform: translateY(105%); animation: rise 1.1s var(--ease) forwards; }
+.wordmark .line > span { display: inline-block; transform: translateY(105%); transition: font-family .2s; cursor: default; }
+body.ready .wordmark .line > span { animation: rise 1.1s var(--ease) forwards; }
 .wordmark .line > span:nth-child(2) { animation-delay: .08s; }
 .wordmark .line > span:nth-child(3) { animation-delay: .16s; }
 .wordmark .line > span:nth-child(4) { animation-delay: .24s; }
@@ -88,8 +89,9 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   display: grid; grid-template-columns: 1fr 1fr auto; gap: var(--gutter); align-items: end;
   margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--line);
   font-size: clamp(15px, 1.25vw, 19px);
-  opacity: 0; animation: fade 1s .7s forwards;
+  opacity: 0;
 }
+body.ready .hero-meta { animation: fade 1s .7s forwards; }
 .scroll-cue {
   width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line);
   display: grid; place-items: center; font-size: 18px; transition: background .3s, color .3s;
@@ -183,9 +185,8 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
 }
 .contact .label { color: var(--dark-muted); display: block; margin-bottom: 10px; }
 .talk { display: inline-flex; align-items: flex-start; gap: .1em; font-weight: 300; font-size: clamp(80px, 17vw, 300px); line-height: .9; letter-spacing: -0.06em; transition: font-style .3s; }
-.talk span { font-size: .3em; margin-top: .25em; transition: transform .5s var(--ease); }
-.talk:hover span { transform: translate(8px, -8px); }
-.talk:hover { font-family: var(--serif); font-style: italic; letter-spacing: -0.03em; }
+.talk .arrow { font-size: .3em; margin-top: .25em; transition: transform .5s var(--ease); }
+.talk:hover .arrow { transform: translate(8px, -8px); }
 .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gutter); margin-top: 90px; padding-top: 20px; border-top: 1px solid var(--dark-line); font-size: 15px; }
 .contact-grid > div { display: flex; flex-direction: column; gap: 4px; }
 .contact-grid a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -227,3 +228,60 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ============ Intro ============ */
+.intro {
+  position: fixed; inset: 0; z-index: 200; background: var(--paper); color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 1.1s cubic-bezier(.77,0,.18,1);
+}
+.intro.out { transform: translateY(-100%); }
+.intro.gone { display: none; }
+.intro-words { list-style: none; font-size: clamp(18px, 1.6vw, 26px); line-height: 1.2; letter-spacing: -0.02em; min-width: min(420px, 80vw); }
+.intro-words li { color: var(--muted); opacity: .45; transition: opacity .4s, color .4s; }
+.intro-words li.now { color: var(--ink); opacity: 1; }
+.intro-bar { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 22px; display: flex; justify-content: space-between; font-size: 12px; padding-bottom: 10px; }
+.intro-bar i { position: absolute; left: 0; bottom: 0; height: 1px; width: 0; background: var(--ink); }
+.intro-count { font-variant-numeric: tabular-nums; color: var(--muted); }
+html.intro-lock, html.intro-lock body { overflow: hidden; }
+
+/* ============ Header hide on scroll ============ */
+.site-header { transition: transform .5s var(--ease); }
+.site-header.hide { transform: translateY(-110%); }
+
+/* ============ Cycling role ============ */
+.cycle { display: inline-block; min-width: 12ch; }
+
+/* ============ Statement light-up ============ */
+.light-up .w { opacity: .16; transition: opacity .25s linear; }
+.light-up .w.on { opacity: 1; }
+
+/* ============ Rails ============ */
+.rails { overflow: hidden; padding: 0 0 60px; }
+.rail { white-space: nowrap; font-size: clamp(44px, 7vw, 120px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 300; }
+.rail-track { display: inline-flex; will-change: transform; }
+.rail-track > * { padding-right: .45em; }
+.rail em { letter-spacing: -0.01em; }
+.rail .outline { color: transparent; -webkit-text-stroke: 1px var(--ink); }
+
+/* ============ Letter flicker ============ */
+[data-flip] .ch { display: inline-block; }
+[data-flip] .ch.alt { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+[data-flip] em .ch.alt { font-family: var(--sans); font-style: normal; font-weight: 300; }
+[data-flip] .wd { display: inline-block; white-space: nowrap; }
+
+/* ============ Hero hover letter ============ */
+.wordmark .line > span.swap { font-family: var(--serif); font-style: italic; }
+
+/* ============ Work colour + stagger ============ */
+body { transition: background-color .6s var(--ease); }
+.work-item.reveal { transform: translateY(40px); }
+.work-item.reveal.in { transform: none; }
+
+/* ============ Replay ============ */
+.replay { background: none; border: 0; color: inherit; font: inherit; cursor: pointer; }
+.replay:hover { color: var(--dark-ink); }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }

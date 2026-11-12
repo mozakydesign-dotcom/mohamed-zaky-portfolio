@@ -14,6 +14,12 @@
 </head>
 <body>
 
+  <!-- INTRO -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <ul class="intro-words" id="introWords"></ul>
+    <div class="intro-bar"><span>Mohamed Zaky</span><span class="intro-count" id="introCount">000</span><i id="introLine"></i></div>
+  </div>
+
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Mohamed Zaky — home">ZAKY<sup>®</sup></a>
     <nav class="nav" aria-label="Main">
@@ -35,7 +41,7 @@
         <span class="line"><span>Z</span><span>A</span><span>K</span><span>Y</span></span>
       </h1>
       <div class="hero-meta">
-        <p><span>Brand identity designer</span><br><span class="muted">based in Egypt</span></p>
+        <p><span class="cycle" id="roleCycle">Brand identity designer</span><br><span class="muted">based in Egypt</span></p>
         <p><span>Identity, strategy &amp; art direction</span><br><span class="muted">for Egypt, the Gulf and beyond</span></p>
         <a class="scroll-cue" href="#work" aria-label="Scroll to work">↓</a>
       </div>
@@ -44,15 +50,14 @@
     <!-- STATEMENT -->
     <section class="statement">
       <p class="label">(About)</p>
-      <h2 class="reveal">Crafting <em>distinctive</em> brands<br> with a reason to be <em>remembered.</em></h2>
+      <h2 class="light-up" id="statement">Crafting <em>distinctive</em> brands<br> with a reason to be <em>remembered.</em></h2>
     </section>
 
-    <!-- MARQUEE -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Brand identity</span><em>Visual direction</em><span class="outline">Packaging</span><span>Logo design</span><em>Social media systems</em><span class="outline">Art direction</span>
-        <span>Brand identity</span><em>Visual direction</em><span class="outline">Packaging</span><span>Logo design</span><em>Social media systems</em><span class="outline">Art direction</span>
-      </div>
+    <!-- RAILS -->
+    <div class="rails" aria-hidden="true">
+      <div class="rail" data-dir="-1"><div class="rail-track"><span>Brand identity</span><em>Visual direction</em><span class="outline">Packaging</span><span>Logo design</span><em>Art direction</em></div></div>
+      <div class="rail" data-dir="1"><div class="rail-track"><em>Social media systems</em><span class="outline">Typography</span><span>Brand strategy</span><em>Naming</em><span class="outline">Guidelines</span></div></div>
+      <div class="rail" data-dir="-1"><div class="rail-track"><span>Arabic &amp; English logotypes</span><em>Packaging</em><span class="outline">Brand identity</span><span>Creative direction</span></div></div>
     </div>
 
     <!-- WORK -->
@@ -65,7 +70,7 @@
     <!-- SERVICES -->
     <section class="services">
       <div class="section-bar"><span>Services</span><span>(03)</span></div>
-      <h2 class="big reveal">Built for <em>clarity.</em></h2>
+      <h2 class="big" data-flip data-keep="1">Built for <em>clarity.</em></h2>
       <div class="service-grid">
         <article class="reveal">
           <span class="num">01</span>
@@ -88,7 +93,7 @@
     <!-- PROCESS -->
     <section class="process">
       <div class="section-bar"><span>Method</span><span>(05)</span></div>
-      <h2 class="big reveal">How I <em>work.</em></h2>
+      <h2 class="big" data-flip data-keep="2">How I <em>work.</em></h2>
       <ol class="steps">
         <li class="reveal"><span class="num">01</span><h3>Discover</h3><p>I learn the business, the market and the people it’s for.</p></li>
         <li class="reveal"><span class="num">02</span><h3>Define</h3><p>We agree on what the brand stands for, in plain words.</p></li>
@@ -106,12 +111,12 @@
           <img src="assets/portrait.jpg" alt="Portrait of Mohamed Zaky" loading="lazy">
         </figure>
         <div class="about-copy">
-          <h2 class="big reveal">I don’t just design.<br><em>I think.</em></h2>
+          <h2 class="big" data-flip data-keep="4,9">I don’t just design.<br><em>I think.</em></h2>
           <p class="reveal">I’m Mohamed Zaky — a graphic and brand designer with 5+ years of experience across Egypt, Saudi Arabia, Kuwait, the UAE, and international clients.</p>
           <p class="reveal muted">I combine strategy, art direction, and craft to create identities that feel intentional — from the first impression to every application after.</p>
           <div class="stats">
-            <div><b>5+</b><span>Years in design</span></div>
-            <div><b>4</b><span>Countries</span></div>
+            <div><b><span data-count="5">0</span>+</b><span>Years in design</span></div>
+            <div><b><span data-count="4">0</span></b><span>Countries</span></div>
           </div>
         </div>
       </div>
@@ -122,7 +127,7 @@
   <!-- CONTACT -->
   <footer id="contact" class="contact">
     <p class="label">Have a brand worth building?</p>
-    <a class="talk" href="https://www.instagram.com/mozakydesign/" target="_blank" rel="noopener">Let’s talk <span>↗</span></a>
+    <a class="talk" href="https://www.instagram.com/mozakydesign/" target="_blank" rel="noopener"><span class="talk-text" data-flip data-keep="5">Let’s talk</span> <span class="arrow">↗</span></a>
     <div class="contact-grid">
       <div><span class="label">Social</span>
         <a href="https://www.instagram.com/mozakydesign/" target="_blank" rel="noopener">Instagram</a>
@@ -138,9 +143,10 @@
     <div class="footer-mark">
       <img src="assets/zaky-mark.png" alt="Zaky — Arabic logotype" loading="lazy">
     </div>
-    <div class="footer-bar"><span>© <span id="year">2026</span> Mohamed Zaky</span><span>Brand Designer</span></div>
+    <div class="footer-bar"><span>© <span id="year">2026</span> Mohamed Zaky</span><button class="replay" id="replayIntro" type="button">↺ Replay intro</button></div>
   </footer>
 
+  <script src="vendor/lenis.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
