@@ -29,7 +29,6 @@ $('#caseStudy').innerHTML = `
   <header class="cs-hero">
     <p class="eyebrow">Case study ${pad(index + 1)} / ${pad(PROJECTS.length)} — ${esc(p.category)}</p>
     <h1 class="cs-title" data-lines>${esc(p.name)}</h1>
-    ${p.nameAr ? `<p class="cs-title-ar reveal" lang="ar" dir="rtl">${esc(p.nameAr)}</p>` : ''}
     <p class="cs-tagline reveal">${esc(p.tagline)}</p>
     <dl class="cs-meta reveal">
       <div><dt>Industry</dt><dd>${esc(p.industry)}</dd></div>
@@ -42,7 +41,7 @@ $('#caseStudy').innerHTML = `
   ${sectionHTML}
   <a class="cs-next" href="project.html?p=${encodeURIComponent(next.slug)}" data-cursor="Next">
     <span class="eyebrow">Next case study</span>
-    <span class="cs-next-name">${esc(next.name)} <em lang="ar">${esc(next.nameAr || '')}</em></span>
+    <span class="cs-next-name">${esc(next.name)}</span>
     <span class="cs-next-img"><img src="${esc(next.cover)}" alt="" loading="lazy"></span>
   </a>`;
 

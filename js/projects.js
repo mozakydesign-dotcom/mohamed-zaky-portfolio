@@ -15,7 +15,6 @@ window.PROJECTS = [
   {
     slug: 'sakin',
     name: 'Sakin',
-    nameAr: 'ساكن',
     tagline: 'A calm, considered identity for a specialty coffee ritual.',
     category: 'Branding & Packaging',
     industry: 'Specialty coffee',
@@ -36,7 +35,6 @@ window.PROJECTS = [
   {
     slug: 'melh',
     name: 'Melh',
-    nameAr: 'ملح',
     tagline: 'A contemporary Saudi dining identity, seasoned with cultural memory.',
     category: 'Restaurant Branding',
     industry: 'Hospitality — Saudi Arabia',
@@ -53,7 +51,6 @@ window.PROJECTS = [
   {
     slug: 'logofolio-26',
     name: 'Logofolio ’26',
-    nameAr: 'شعارات',
     tagline: 'Twenty logotypes and marks — Arabic and English — redesigned.',
     category: 'Logo Design',
     industry: 'Personal project',
@@ -69,7 +66,6 @@ window.PROJECTS = [
   {
     slug: 'cozy-cup',
     name: 'Cozy Cup',
-    nameAr: 'كوزي كب',
     tagline: 'A warm, playful identity for a neighbourhood coffee shop.',
     category: 'Brand Identity',
     industry: 'Coffee shop',
@@ -85,7 +81,6 @@ window.PROJECTS = [
   {
     slug: 'eman-hijab',
     name: 'Eman Hijab',
-    nameAr: 'إيمان',
     tagline: 'A confident modest-fashion brand with Arabic lettering at its core.',
     category: 'Brand Identity',
     industry: 'Modest fashion',

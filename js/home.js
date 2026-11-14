@@ -7,7 +7,7 @@ stack.innerHTML = PROJECTS.map((p, i) => `
     <div class="card-media"><img src="${p.cover}" alt="${p.name} — ${p.category}" loading="${i < 2 ? 'eager' : 'lazy'}"></div>
     <div class="card-info">
       <span class="card-idx">${pad(i + 1)} / ${pad(PROJECTS.length)}</span>
-      <h3>${p.name} <span lang="ar">${p.nameAr || ''}</span></h3>
+      <h3>${p.name}</h3>
       <p>${p.tagline}</p>
       <div class="card-meta"><span>${p.category}</span><span>${p.year}</span><span class="card-cta">View case study →</span></div>
     </div>
@@ -29,14 +29,12 @@ function stackTick() {
 }
 if (!reduced) stackTick();
 
-/* ---------- Hero: letters drift apart and the Arabic mark rises on scroll ---------- */
+/* ---------- Hero: letters drift apart on scroll ---------- */
 const wordmark = $('.wordmark');
-const heroAr = $('.hero-ar');
 function heroTick() {
   const y = scrollY_();
   const t = Math.min(1, y / innerHeight);
   wordmark.style.setProperty('--spread', t.toFixed(3));
-  heroAr.style.transform = `translateY(${-t * 60}px) scale(${1 + t * 0.15})`;
   requestAnimationFrame(heroTick);
 }
 if (!reduced) heroTick();
@@ -58,7 +56,7 @@ function playIntro() {
   lenis && lenis.stop();
   document.body.classList.remove('ready');
   intro.classList.add('play');
-  setTimeout(finishIntro, 2700);
+  setTimeout(finishIntro, 2200);
 }
 if (reduced || store.get('mzIntro2')) { intro.classList.add('gone'); document.body.classList.add('ready'); }
 else playIntro();
