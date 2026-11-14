@@ -8,40 +8,60 @@ const next = PROJECTS[(index + 1) % PROJECTS.length];
 document.title = `${p.name} — Case study — Mohamed Zaky`;
 document.documentElement.style.setProperty('--accent', p.accent);
 
-const sections = (p.sections || []).filter(s => (s.text && s.text.trim()) || (s.images && s.images.length));
-let n = 0;
-const sectionHTML = sections.map(s => {
-  const hasText = s.text && s.text.trim();
-  const text = hasText ? `
-    <div class="cs-row">
-      <p class="cs-label"><span>${pad(++n)}</span>${esc(s.title)}</p>
-      <div class="cs-body">
-        <p class="reveal">${esc(s.text)}</p>
-        ${s.palette && p.palette ? `<div class="swatches">${p.palette.map(c => `<div class="swatch reveal" style="--c:${esc(c)}"><span>${esc(c.toUpperCase())}</span></div>`).join('')}</div>` : ''}
+const img = (src, alt, cls = '') => `<figure class="cs-img ${cls} reveal"><img src="${esc(src)}" alt="${esc(alt)}" loading="lazy"></figure>`;
+
+const render = {
+  text: b => `
+    <section class="cs-text">
+      <p class="cs-label">${esc(b.label || '')}</p>
+      <div class="cs-body">${[].concat(b.text || []).map(t => `<p class="reveal">${esc(t)}</p>`).join('')}</div>
+    </section>`,
+  quote: b => `<blockquote class="cs-quote" data-lines>${esc(b.text)}</blockquote>`,
+  image: b => `<div class="cs-block">${img(b.src, p.name, b.board ? 'board' : '')}${b.caption ? `<p class="cs-caption">${esc(b.caption)}</p>` : ''}</div>`,
+  images: b => `<div class="cs-block cs-row-imgs" style="--n:${Math.min(4, (b.src || []).length)}">${(b.src || []).map(s => img(s, p.name, b.board ? 'board' : '')).join('')}</div>`,
+  palette: b => `
+    <section class="cs-text">
+      <p class="cs-label">${esc(b.label || 'Colour')}</p>
+      <div class="palette reveal">${(b.colors || []).map(c => `
+        <div class="pal" style="--c:${esc(c.hex)};--w:${+c.pct || 1}">
+          <span class="pal-name">${esc(c.name || '')}</span>
+          <span class="pal-hex">${esc(String(c.hex).toUpperCase())}${c.pct ? ` · ${+c.pct}%` : ''}</span>
+        </div>`).join('')}
       </div>
-    </div>` : '';
-  const imgs = (s.images || []).map(im => `
-    <figure class="cs-img ${im.wide ? 'wide' : 'half'} reveal"><img src="${esc(im.src)}" alt="${esc(p.name)} — ${esc(s.title)}" loading="lazy"></figure>`).join('');
-  return `<section class="cs-section">${text}${imgs ? `<div class="cs-gallery">${imgs}</div>` : ''}</section>`;
-}).join('');
+    </section>`,
+  keywords: b => `
+    <section class="cs-text">
+      <p class="cs-label">${esc(b.label || 'Personality')}</p>
+      <ul class="keywords">${(b.words || []).map((w, i) => `<li class="reveal" style="transition-delay:${i * 60}ms">${esc(w)}</li>`).join('')}</ul>
+    </section>`,
+};
+
+const blocksHTML = (p.blocks || []).map(b => (render[b.type] ? render[b.type](b) : '')).join('');
+const infoHTML = Object.entries(p.info || {}).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
+const creditsHTML = (p.credits || []).length ? `
+  <section class="cs-credits">
+    <div class="cs-credits-head"><span>Credits</span><span>(${pad(p.credits.length)})</span></div>
+    ${p.credits.map(c => `<div class="credit reveal"><span>${esc(c.role)}</span><b>${esc(c.name)}</b></div>`).join('')}
+  </section>` : '';
 
 $('#caseStudy').innerHTML = `
   <header class="cs-hero">
-    <p class="eyebrow">Case study ${pad(index + 1)} / ${pad(PROJECTS.length)} — ${esc(p.category)}</p>
+    <div class="cs-topline"><a href="index.html#work">← All work</a><span>${pad(index + 1)} of ${pad(PROJECTS.length)}</span></div>
     <h1 class="cs-title" data-lines>${esc(p.name)}</h1>
     <p class="cs-tagline reveal">${esc(p.tagline)}</p>
-    <dl class="cs-meta reveal">
-      <div><dt>Industry</dt><dd>${esc(p.industry)}</dd></div>
-      <div><dt>Year</dt><dd>${esc(p.year)}</dd></div>
-      <div><dt>Services</dt><dd>${(p.services || []).map(esc).join('<br>')}</dd></div>
-      <div><dt>Role</dt><dd>Brand designer</dd></div>
-    </dl>
+    <dl class="cs-info reveal">${infoHTML}</dl>
   </header>
   <figure class="cs-cover"><img src="${esc(p.cover)}" alt="${esc(p.name)} cover"></figure>
-  ${sectionHTML}
+  <div class="cs-content">${blocksHTML}</div>
+  ${creditsHTML}
+  <section class="cs-cta reveal">
+    <p class="eyebrow">Have a brand like this in mind?</p>
+    <h2>Your brand could be<br>the next <em>case study.</em></h2>
+    <a class="pill-lg" href="index.html#contact">Start a project →</a>
+  </section>
   <a class="cs-next" href="project.html?p=${encodeURIComponent(next.slug)}" data-cursor="Next">
-    <span class="eyebrow">Next case study</span>
-    <span class="cs-next-name">${esc(next.name)}</span>
+    <span class="eyebrow">Next project</span>
+    <span class="cs-next-name">${esc(next.name)} <i>→</i></span>
     <span class="cs-next-img"><img src="${esc(next.cover)}" alt="" loading="lazy"></span>
   </a>`;
 

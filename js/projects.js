@@ -1,15 +1,20 @@
 /* =========================================================
    PROJECTS — the single place to edit your work.
    Each project gets its own case study page: project.html?p=<slug>
+   Put a project's images in assets/work/<slug>/
 
-   - slug:      short id used in the link (no spaces)
-   - accent:    colour used on the case study page
-   - cover:     main image (also used on the home page)
-   - palette:   brand colours shown as swatches
-   - sections:  the story of the case study, in order.
-                A section can have text, images, or both.
-                images: [{ src, wide: true }]  wide = full width
-   Sections with empty text are hidden automatically.
+   Project fields
+   - slug, name, tagline, year, cover, accent (card colour)
+   - info: the table under the title, e.g. { Scope: '...', Role: '...', Client: '...' }
+   - credits: [{ role, name }]
+   - blocks: the case study, top to bottom. Block types:
+
+     { type: 'text', label: 'The story', text: ['Paragraph one', 'Paragraph two'] }
+     { type: 'quote', text: 'A big italic line that breaks the rhythm.' }
+     { type: 'image', src: 'assets/work/x/01.jpg', board: true }   board = light frame like a presentation slide
+     { type: 'images', src: ['a.jpg', 'b.jpg', 'c.jpg'] }           2–4 images side by side
+     { type: 'palette', label: 'Colour', colors: [{ hex: '#004236', name: 'Main', pct: 70 }] }
+     { type: 'keywords', label: 'Brand personality', words: ['Arabian', 'Heritage', 'Elegance'] }
    ========================================================= */
 window.PROJECTS = [
   {
@@ -17,50 +22,68 @@ window.PROJECTS = [
     name: 'Sakin',
     tagline: 'A calm, considered identity for a specialty coffee ritual.',
     category: 'Branding & Packaging',
-    industry: 'Specialty coffee',
     year: 2026,
-    services: ['Brand identity', 'Bilingual logotype', 'Packaging', 'Art direction'],
     accent: '#2c3a2c',
     cover: 'assets/work/sakin.jpg',
-    palette: ['#1f2a20', '#efe6d4', '#6b5640', '#b49a63'],
-    sections: [
-      { title: 'The brief', text: 'SAKIN is a specialty coffee branding and packaging project. The identity was developed around calm, presence, and the everyday ritual of coffee.' },
-      { title: 'The idea', text: 'The project presents coffee as a deliberate pause. “Sakin” — calm, still — is expressed through a grounded visual world that carries across Arabic and English touchpoints.' },
-      { title: 'Identity', text: 'An English wordmark paired with Arabic calligraphy creates a bilingual system that feels distinct while staying closely connected across every application.' },
-      { title: 'Type & colour', text: 'Deep forest green, warm cream, muted brown and a subtle gold create a restrained palette. Arabic and English typography work together throughout.', palette: true },
-      { title: 'Art direction', text: 'Quiet and tactile: dark, warm environments, controlled contrast, and close attention to material, form, and the coffee ritual.' },
-      { title: 'Applications', text: 'The system comes to life across cups, takeaway bags, menus, social media and packaging.' },
+    info: {
+      Scope: 'Brand identity, bilingual logotype, packaging, art direction',
+      Role: 'Brand designer',
+      Industry: 'Specialty coffee',
+      Year: '2026',
+    },
+    blocks: [
+      { type: 'text', label: 'The story', text: [
+        'SAKIN is a specialty coffee brand built around one idea: coffee as a pause in the day.',
+        'The identity had to feel calm and grounded — never loud — and carry that feeling from the cup to the screen.',
+      ] },
+      { type: 'quote', text: 'Coffee as a deliberate pause — not another rush in the day.' },
+      { type: 'text', label: 'The identity', text: [
+        'An English wordmark paired with Arabic calligraphy creates a bilingual system that feels distinct while staying closely connected across every application.',
+      ] },
+      { type: 'palette', label: 'Colour', colors: [
+        { hex: '#1f2a20', name: 'Forest', pct: 60 },
+        { hex: '#efe6d4', name: 'Cream', pct: 25 },
+        { hex: '#6b5640', name: 'Roast', pct: 10 },
+        { hex: '#b49a63', name: 'Gold', pct: 5 },
+      ] },
+      { type: 'keywords', label: 'Brand personality', words: ['Calm', 'Grounded', 'Tactile', 'Warm', 'Considered'] },
+      { type: 'text', label: 'Art direction', text: [
+        'Quiet and tactile: dark, warm environments, controlled contrast, and close attention to material, form, and the coffee ritual.',
+      ] },
+      { type: 'text', label: 'Applications', text: [
+        'The system comes to life across cups, takeaway bags, menus, social media and packaging.',
+      ] },
     ],
+    credits: [{ role: 'Brand identity, packaging, art direction', name: 'Mohamed Zaky' }],
   },
   {
     slug: 'melh',
     name: 'Melh',
     tagline: 'A contemporary Saudi dining identity, seasoned with cultural memory.',
     category: 'Restaurant Branding',
-    industry: 'Hospitality — Saudi Arabia',
     year: 2025,
-    services: ['Brand identity', 'Pattern system', 'Menu & packaging'],
     accent: '#5a1f26',
     cover: 'assets/work/melh.jpg',
-    palette: ['#5a1f26', '#e9dcc6', '#1a1716', '#a5826a'],
-    sections: [
-      { title: 'The brief', text: 'MELH draws from Saudi warmth and visual culture while staying current and intentional.' },
-      { title: 'Type & colour', text: 'A deep crimson inspired by Sadu weaving, set against warm sand and charcoal.', palette: true },
+    info: { Scope: 'Brand identity, pattern system, menu & packaging', Role: 'Brand designer', Industry: 'Hospitality', Location: 'Saudi Arabia' },
+    blocks: [
+      { type: 'text', label: 'The story', text: ['MELH draws from Saudi warmth and visual culture while staying current and intentional.'] },
+      { type: 'palette', label: 'Colour', colors: [
+        { hex: '#5a1f26', name: 'Sadu red', pct: 55 }, { hex: '#e9dcc6', name: 'Sand', pct: 30 }, { hex: '#1a1716', name: 'Charcoal', pct: 15 },
+      ] },
     ],
+    credits: [{ role: 'Brand identity', name: 'Mohamed Zaky' }],
   },
   {
     slug: 'logofolio-26',
     name: 'Logofolio ’26',
-    tagline: 'Twenty logotypes and marks — Arabic and English — redesigned.',
+    tagline: 'Twenty logotypes and marks, redesigned.',
     category: 'Logo Design',
-    industry: 'Personal project',
     year: 2026,
-    services: ['Logotypes', 'Arabic lettering', 'Marks'],
     accent: '#2a2a28',
     cover: 'assets/work/logofolio.jpg',
-    palette: ['#111111', '#f2f2f2'],
-    sections: [
-      { title: 'The brief', text: 'Twenty logo redesigns of well-known Egyptian and Gulf brands, created during Logojulio.' },
+    info: { Scope: 'Logotypes & marks', Role: 'Designer', Type: 'Personal project' },
+    blocks: [
+      { type: 'text', label: 'The story', text: ['Twenty logo redesigns of well-known Egyptian and Gulf brands, created during Logojulio.'] },
     ],
   },
   {
@@ -68,29 +91,25 @@ window.PROJECTS = [
     name: 'Cozy Cup',
     tagline: 'A warm, playful identity for a neighbourhood coffee shop.',
     category: 'Brand Identity',
-    industry: 'Coffee shop',
     year: 2024,
-    services: ['Brand identity', 'Campaign', 'Social media'],
     accent: '#2e3a1c',
     cover: 'assets/work/cozy-cup.jpg',
-    palette: ['#2e3a1c', '#efe7d6', '#8a6a3d'],
-    sections: [
-      { title: 'The brief', text: 'A coffee shop identity built to feel friendly, warm and instantly recognisable.' },
+    info: { Scope: 'Brand identity, campaign, social media', Role: 'Brand designer', Industry: 'Coffee shop' },
+    blocks: [
+      { type: 'text', label: 'The story', text: ['A coffee shop identity built to feel friendly, warm and instantly recognisable.'] },
     ],
   },
   {
     slug: 'eman-hijab',
     name: 'Eman Hijab',
-    tagline: 'A confident modest-fashion brand with Arabic lettering at its core.',
+    tagline: 'A confident modest-fashion brand built on expressive lettering.',
     category: 'Brand Identity',
-    industry: 'Modest fashion',
     year: 2024,
-    services: ['Brand identity', 'Arabic logotype', 'Campaign'],
     accent: '#26324a',
     cover: 'assets/work/eman-hijab.jpg',
-    palette: ['#26324a', '#e8e2da', '#7f6f66'],
-    sections: [
-      { title: 'The brief', text: 'A modest fashion brand that needed a bold, expressive identity rooted in Arabic letterforms.' },
+    info: { Scope: 'Brand identity, logotype, campaign', Role: 'Brand designer', Industry: 'Modest fashion' },
+    blocks: [
+      { type: 'text', label: 'The story', text: ['A modest fashion brand that needed a bold, expressive identity rooted in its letterforms.'] },
     ],
   },
 ];
