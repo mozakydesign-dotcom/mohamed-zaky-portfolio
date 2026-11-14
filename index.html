@@ -4,24 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mohamed Zaky — Brand Identity Designer</title>
-  <meta name="description" content="Mohamed Zaky is a brand identity designer from Egypt crafting distinctive identities for brands across Egypt, the Gulf and beyond.">
+  <meta name="description" content="Mohamed Zaky is a brand identity designer from Egypt building bilingual, Arabic–English brand identities for Egypt, the Gulf and beyond.">
   <meta name="theme-color" content="#0D0D0C">
   <link rel="icon" href="assets/zaky-mark.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;0,600;1,400&family=Inter+Tight:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="home">
 
-  <!-- INTRO -->
+  <!-- INTRO: the Arabic mark writes itself right-to-left, then the Latin name follows -->
   <div class="intro" id="intro" aria-hidden="true">
-    <ul class="intro-words" id="introWords"></ul>
-    <div class="intro-bar"><span>Mohamed Zaky</span><span class="intro-count" id="introCount">000</span><i id="introLine"></i></div>
+    <div class="intro-inner">
+      <img class="intro-ar" src="assets/zaky-mark.png" alt="">
+      <div class="intro-en"><span>Z</span><span>A</span><span>K</span><span>Y</span></div>
+    </div>
   </div>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Mohamed Zaky — home">ZAKY<sup>®</sup></a>
+    <a class="brand" href="index.html#top" aria-label="Mohamed Zaky — home">ZAKY</a>
     <nav class="nav" aria-label="Main">
       <a href="#work">Work</a>
       <a href="#about">About</a>
@@ -33,91 +35,110 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-side">
-        <span>Mohamed Zaky</span>
-        <span>Brand Designer</span>
+      <div class="hero-top">
+        <p>Brand identity designer<br><span class="muted">Arabic &amp; English brands</span></p>
+        <p class="ar" lang="ar" dir="rtl">مصمم هوية بصرية</p>
+        <p class="status"><i></i> Available for new projects</p>
       </div>
+
       <h1 class="wordmark" aria-label="Zaky">
-        <span class="line"><span>Z</span><span>A</span><span>K</span><span>Y</span></span>
+        <span class="wl">Z</span><span class="wl">A</span><span class="wl">K</span><span class="wm-tag" aria-hidden="true"><b>Mohamed Zaky</b><span>Brand Designer</span></span><span class="wl">Y</span>
       </h1>
-      <div class="hero-meta">
-        <p><span class="cycle" id="roleCycle">Brand identity designer</span><br><span class="muted">based in Egypt</span></p>
-        <p><span>Identity, strategy &amp; art direction</span><br><span class="muted">for Egypt, the Gulf and beyond</span></p>
-        <a class="scroll-cue" href="#work" aria-label="Scroll to work">↓</a>
+
+      <div class="hero-bottom">
+        <img class="hero-ar" src="assets/zaky-mark.png" alt="Zaky in Arabic calligraphy">
+        <p class="hero-line">I build brands that speak<br>two languages — and <em>mean</em> one thing.</p>
+        <a class="scroll-cue" href="#work" data-cursor="Work">↓</a>
       </div>
     </section>
 
-    <!-- STATEMENT -->
+    <!-- STATEMENT with inline images -->
     <section class="statement">
-      <p class="label">(About)</p>
-      <h2 class="light-up" id="statement">Crafting <em>distinctive</em> brands<br> with a reason to be <em>remembered.</em></h2>
+      <p class="eyebrow">(01) — Approach</p>
+      <h2 class="statement-text reveal">
+        Strategy first, then craft. Every identity I make is
+        <span class="pic"><img src="assets/work/sakin.jpg" alt=""></span> <em>considered</em>,
+        reads clearly in <span class="ar-inline" lang="ar">عربي</span> &amp; English,
+        and is built to stay <span class="pic"><img src="assets/work/melh.jpg" alt=""></span> <em>remembered.</em>
+      </h2>
     </section>
 
-    <!-- RAILS -->
-    <div class="rails" aria-hidden="true">
-      <div class="rail" data-dir="-1"><div class="rail-track"><span>Brand identity</span><em>Visual direction</em><span class="outline">Packaging</span><span>Logo design</span><em>Art direction</em></div></div>
-      <div class="rail" data-dir="1"><div class="rail-track"><em>Social media systems</em><span class="outline">Typography</span><span>Brand strategy</span><em>Naming</em><span class="outline">Guidelines</span></div></div>
-      <div class="rail" data-dir="-1"><div class="rail-track"><span>Arabic &amp; English logotypes</span><em>Packaging</em><span class="outline">Brand identity</span><span>Creative direction</span></div></div>
-    </div>
-
-    <!-- WORK -->
+    <!-- WORK: stacked cards -->
     <section id="work" class="work">
-      <div class="section-bar"><span>Selected work</span><span id="workCount">(00)</span></div>
-      <ul class="work-list" id="workList"></ul>
-      <div class="work-preview" id="workPreview" aria-hidden="true"><img alt=""></div>
+      <div class="section-head">
+        <p class="eyebrow">(02) — Selected work</p>
+        <h2 class="big" data-lines>Case<br><em>studies.</em></h2>
+        <p class="section-note muted">Each project is a full story — the brief, the idea, and the system behind it.</p>
+      </div>
+      <div class="stack" id="stack"></div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES: bilingual rows -->
     <section class="services">
-      <div class="section-bar"><span>Services</span><span>(03)</span></div>
-      <h2 class="big" data-flip data-keep="1">Built for <em>clarity.</em></h2>
-      <div class="service-grid">
-        <article class="reveal">
-          <span class="num">01</span>
-          <h3>Brand Identity</h3>
-          <p>Visual systems that make your business recognisable, coherent, and ready to grow.</p>
-        </article>
-        <article class="reveal">
-          <span class="num">02</span>
-          <h3>Creative Direction</h3>
-          <p>A sharper visual language for launches, campaigns, and brands in motion.</p>
-        </article>
-        <article class="reveal">
-          <span class="num">03</span>
-          <h3>Social Media Systems</h3>
-          <p>Content design that protects the brand while helping it show up consistently.</p>
-        </article>
+      <div class="section-head">
+        <p class="eyebrow">(03) — Services</p>
+        <h2 class="big" data-lines>What I<br><em>do.</em></h2>
       </div>
+      <ul class="svc-list">
+        <li class="reveal">
+          <span class="svc-num">01</span>
+          <h3>Brand Identity</h3>
+          <span class="svc-ar" lang="ar" dir="rtl">هوية بصرية</span>
+          <p>Logo, type, colour and a full visual system that makes your business recognisable and ready to grow.</p>
+        </li>
+        <li class="reveal">
+          <span class="svc-num">02</span>
+          <h3>Arabic &amp; English Logotypes</h3>
+          <span class="svc-ar" lang="ar" dir="rtl">شعارات عربي وإنجليزي</span>
+          <p>Bilingual wordmarks where both scripts are designed together — never one translated into the other.</p>
+        </li>
+        <li class="reveal">
+          <span class="svc-num">03</span>
+          <h3>Packaging</h3>
+          <span class="svc-ar" lang="ar" dir="rtl">تغليف</span>
+          <p>Packaging that carries the brand onto the shelf, the table and into people’s hands.</p>
+        </li>
+        <li class="reveal">
+          <span class="svc-num">04</span>
+          <h3>Creative Direction</h3>
+          <span class="svc-ar" lang="ar" dir="rtl">توجيه إبداعي</span>
+          <p>A sharper visual language for launches, campaigns and social media — consistent everywhere it shows up.</p>
+        </li>
+      </ul>
     </section>
 
     <!-- PROCESS -->
     <section class="process">
-      <div class="section-bar"><span>Method</span><span>(05)</span></div>
-      <h2 class="big" data-flip data-keep="2">How I <em>work.</em></h2>
+      <div class="section-head">
+        <p class="eyebrow">(04) — Process</p>
+        <h2 class="big" data-lines>How it<br><em>works.</em></h2>
+      </div>
       <ol class="steps">
-        <li class="reveal"><span class="num">01</span><h3>Discover</h3><p>I learn the business, the market and the people it’s for.</p></li>
-        <li class="reveal"><span class="num">02</span><h3>Define</h3><p>We agree on what the brand stands for, in plain words.</p></li>
-        <li class="reveal"><span class="num">03</span><h3>Direct</h3><p>A clear creative direction before a single logo is drawn.</p></li>
-        <li class="reveal"><span class="num">04</span><h3>Design</h3><p>The mark, type, colour and system — built to work together.</p></li>
-        <li class="reveal"><span class="num">05</span><h3>Deliver</h3><p>Final files and guidelines, ready for every application.</p></li>
+        <li class="reveal"><span class="step-num">01<i lang="ar">٠١</i></span><h3>Discover</h3><p>I learn the business, the market and the people it’s for.</p></li>
+        <li class="reveal"><span class="step-num">02<i lang="ar">٠٢</i></span><h3>Define</h3><p>We agree on what the brand stands for, in plain words.</p></li>
+        <li class="reveal"><span class="step-num">03<i lang="ar">٠٣</i></span><h3>Direct</h3><p>A clear creative direction before a single logo is drawn.</p></li>
+        <li class="reveal"><span class="step-num">04<i lang="ar">٠٤</i></span><h3>Design</h3><p>The mark, type, colour and system — built to work together.</p></li>
+        <li class="reveal"><span class="step-num">05<i lang="ar">٠٥</i></span><h3>Deliver</h3><p>Final files and guidelines, ready for every application.</p></li>
       </ol>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="about">
-      <div class="section-bar"><span>About Mohamed</span><span>Egypt · Worldwide</span></div>
+      <p class="eyebrow">(05) — About</p>
       <div class="about-grid">
         <figure class="portrait reveal">
           <img src="assets/portrait.jpg" alt="Portrait of Mohamed Zaky" loading="lazy">
+          <figcaption>Mohamed Zaky <span lang="ar">محمد زكي</span></figcaption>
         </figure>
         <div class="about-copy">
-          <h2 class="big" data-flip data-keep="4,9">I don’t just design.<br><em>I think.</em></h2>
+          <h2 class="big" data-lines>I don’t just<br>design. <em>I think.</em></h2>
           <p class="reveal">I’m Mohamed Zaky — a graphic and brand designer with 5+ years of experience across Egypt, Saudi Arabia, Kuwait, the UAE, and international clients.</p>
-          <p class="reveal muted">I combine strategy, art direction, and craft to create identities that feel intentional — from the first impression to every application after.</p>
+          <p class="reveal muted">I combine strategy, art direction and craft to create identities that feel intentional — from the first impression to every application after.</p>
           <div class="stats">
-            <div><b><span data-count="5">0</span>+</b><span>Years in design</span></div>
-            <div><b><span data-count="4">0</span></b><span>Countries</span></div>
+            <div class="reveal"><b><span data-count="5">0</span>+</b><span>Years in design</span></div>
+            <div class="reveal"><b><span data-count="4">0</span></b><span>Countries</span></div>
           </div>
+          <a class="text-link" href="https://www.behance.net/mohamedzaky1" target="_blank" rel="noopener">Full archive on Behance ↗</a>
         </div>
       </div>
     </section>
@@ -126,27 +147,26 @@
 
   <!-- CONTACT -->
   <footer id="contact" class="contact">
-    <p class="label">Have a brand worth building?</p>
-    <a class="talk" href="https://www.instagram.com/mozakydesign/" target="_blank" rel="noopener"><span class="talk-text" data-flip data-keep="5">Let’s talk</span> <span class="arrow">↗</span></a>
+    <p class="eyebrow">(06) — Contact</p>
+    <a class="talk" href="https://www.instagram.com/mozakydesign/" target="_blank" rel="noopener" data-cursor="Say hi">
+      <span class="talk-en">Let’s talk</span><span class="talk-ar" lang="ar">يلا نتكلم</span>
+    </a>
     <div class="contact-grid">
       <div><span class="label">Social</span>
         <a href="https://www.instagram.com/mozakydesign/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.linkedin.com/in/mozakydesign/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://www.behance.net/mohamedzaky1" target="_blank" rel="noopener">Behance</a>
       </div>
-      <div><span class="label">Menu</span>
-        <a href="#work">Work</a><a href="#about">About</a><a href="#top">Back to top</a>
-      </div>
+      <div><span class="label">Menu</span><a href="#work">Work</a><a href="#about">About</a><a href="#top">Back to top</a></div>
       <div><span class="label">Availability</span><span>Open for new work</span></div>
       <div><span class="label">Local time</span><span id="localTime">—</span></div>
     </div>
-    <div class="footer-mark">
-      <img src="assets/zaky-mark.png" alt="Zaky — Arabic logotype" loading="lazy">
-    </div>
-    <div class="footer-bar"><span>© <span id="year">2026</span> Mohamed Zaky</span><button class="replay" id="replayIntro" type="button">↺ Replay intro</button></div>
+    <div class="footer-bar"><span>© <span id="year">2026</span> Mohamed Zaky</span><button class="replay" id="replayIntro" type="button">Replay intro</button></div>
   </footer>
 
-  <script src="vendor/lenis.min.js"></script>
-  <script src="main.js"></script>
+  <script src="js/lenis.min.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>
