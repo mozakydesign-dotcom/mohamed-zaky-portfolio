@@ -253,6 +253,49 @@ body.ready .hero-bottom { opacity: 1; }
 .talk-en i { font-style: normal; font-size: .3em; vertical-align: top; display: inline-block; margin-top: .3em; transition: transform .5s var(--ease); }
 .talk:hover .talk-en { letter-spacing: -0.03em; }
 .talk:hover .talk-en i { transform: translate(8px, -8px); }
+/* ============ Brief form ============ */
+.talk { font-weight: 300; }
+.brief { display: grid; grid-template-columns: 2fr 1fr; gap: clamp(24px, 5vw, 90px); margin-top: 60px; }
+.brief-head { display: flex; justify-content: space-between; font-size: 13px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); }
+.field { display: block; padding: 18px 0 6px; border-bottom: 1px solid var(--line); transition: border-color .3s; }
+.field:focus-within { border-color: var(--ink); }
+.field > span { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.field input, .field textarea {
+  width: 100%; background: none; border: 0; outline: 0; color: var(--ink);
+  font: 300 clamp(20px, 1.9vw, 30px)/1.2 var(--sans); letter-spacing: -0.02em; resize: vertical; padding: 0;
+}
+.field input::placeholder, .field textarea::placeholder { color: rgba(239,236,229,.25); }
+.field.invalid { border-color: #d9826f; }
+.chips { border: 0; padding: 22px 0 4px; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips legend { font-size: 12px; color: var(--muted); margin-bottom: 10px; float: left; width: 100%; }
+.chips label { position: relative; }
+.chips input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.chips span { display: inline-block; padding: 8px 15px; border: 1px solid var(--line); border-radius: 99px; font-size: 14px; transition: background .25s, color .25s, border-color .25s; }
+.chips label:hover span { border-color: var(--ink); }
+.chips input:checked + span { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chips input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+.hp { position: absolute; left: -9999px; }
+.brief-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; margin-top: 34px; }
+.send {
+  background: none; border: 0; color: var(--ink); cursor: pointer;
+  font: 300 clamp(48px, 6vw, 96px)/1 var(--sans); letter-spacing: -0.05em; display: inline-flex; align-items: center; gap: .2em;
+}
+.send i { font-style: normal; font-size: .55em; transition: transform .5s var(--ease); }
+.send:hover i { transform: translateX(12px); }
+.send:disabled { opacity: .4; cursor: wait; }
+.form-status { font-size: 15px; max-width: 34ch; }
+.form-status.ok { color: #9fd3a8; }
+.form-status.err { color: #e3a090; }
+.brief-side { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--line); align-self: start; font-size: 15px; }
+.brief-side > div { padding: 16px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.brief-side .label { margin-bottom: 4px; }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #9fd3a8; margin-right: 6px; vertical-align: middle; animation: pulse 2.2s infinite; }
+.next-steps { padding-left: 1.2em; color: var(--muted); display: grid; gap: 6px; }
+.brief-done { padding: 60px 0; }
+.brief-done h3 { font-weight: 300; font-size: clamp(40px, 5vw, 80px); letter-spacing: -0.045em; line-height: 1; }
+.brief-done p { color: var(--muted); margin-top: 16px; font-size: 17px; }
+
 .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--gutter); margin-top: 90px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 15px; }
 .contact-grid > div { display: flex; flex-direction: column; gap: 4px; }
 .contact-grid a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -337,6 +380,7 @@ html.lenis, html.lenis body { height: auto; }
   .about-grid { grid-template-columns: 1fr; }
   .portrait { position: static; max-width: 460px; }
   .contact-grid { grid-template-columns: 1fr 1fr; row-gap: 32px; }
+  .brief { grid-template-columns: 1fr; }
   .cs-hero { grid-template-columns: 1fr; }
   .cs-text { grid-template-columns: 1fr; gap: 16px; }
   .credit { grid-template-columns: 1fr; gap: 4px; }
@@ -354,6 +398,7 @@ html.lenis, html.lenis body { height: auto; }
   .section-note { justify-self: start; }
   .card { height: 82svh; top: calc(64px + var(--i) * 8px); }
   .card-cta { margin-left: 0; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
   .cs-cover { height: 60svh; }
   .cs-row-imgs { grid-template-columns: 1fr 1fr; }
   .palette { flex-direction: column; height: auto; }

@@ -143,9 +143,70 @@
   <!-- CONTACT -->
   <footer id="contact" class="contact">
     <p class="eyebrow">(06) — Contact</p>
-    <a class="talk" href="https://www.instagram.com/mozakydesign/" target="_blank" rel="noopener" data-cursor="Say hi">
-      <span class="talk-en">Let’s talk <i>↗</i></span>
-    </a>
+    <h2 class="talk"><span class="talk-en">Let’s talk <i>↘</i></span></h2>
+
+    <div class="brief">
+      <form class="brief-form" id="briefForm" novalidate>
+        <div class="brief-head"><span>Start a project</span><span class="muted">Takes 2 minutes</span></div>
+
+        <div class="field-row">
+          <label class="field"><span>Your name *</span><input name="name" type="text" autocomplete="name" placeholder="Full name" required></label>
+          <label class="field"><span>Email *</span><input name="email" type="email" autocomplete="email" placeholder="you@company.com" required></label>
+        </div>
+        <div class="field-row">
+          <label class="field"><span>Company / brand</span><input name="company" type="text" autocomplete="organization" placeholder="What is it called?"></label>
+          <label class="field"><span>WhatsApp (optional)</span><input name="phone" type="tel" autocomplete="tel" placeholder="+20 …"></label>
+        </div>
+
+        <fieldset class="chips">
+          <legend>What do you need?</legend>
+          <label><input type="checkbox" name="services" value="Brand identity"><span>Brand identity</span></label>
+          <label><input type="checkbox" name="services" value="Logo design"><span>Logo design</span></label>
+          <label><input type="checkbox" name="services" value="Packaging"><span>Packaging</span></label>
+          <label><input type="checkbox" name="services" value="Social media"><span>Social media</span></label>
+          <label><input type="checkbox" name="services" value="Creative direction"><span>Creative direction</span></label>
+          <label><input type="checkbox" name="services" value="Not sure yet"><span>Not sure yet</span></label>
+        </fieldset>
+
+        <fieldset class="chips">
+          <legend>Budget (USD)</legend>
+          <label><input type="radio" name="budget" value="Under $1k"><span>Under $1k</span></label>
+          <label><input type="radio" name="budget" value="$1k – $3k"><span>$1k – $3k</span></label>
+          <label><input type="radio" name="budget" value="$3k – $6k"><span>$3k – $6k</span></label>
+          <label><input type="radio" name="budget" value="$6k+"><span>$6k+</span></label>
+          <label><input type="radio" name="budget" value="Not sure"><span>Not sure</span></label>
+        </fieldset>
+
+        <fieldset class="chips">
+          <legend>When do you need it?</legend>
+          <label><input type="radio" name="timeline" value="ASAP"><span>ASAP</span></label>
+          <label><input type="radio" name="timeline" value="Within a month"><span>Within a month</span></label>
+          <label><input type="radio" name="timeline" value="1–3 months"><span>1–3 months</span></label>
+          <label><input type="radio" name="timeline" value="Flexible"><span>Flexible</span></label>
+        </fieldset>
+
+        <label class="field"><span>Tell me about the project *</span><textarea name="message" rows="3" placeholder="What are you building, and what’s the challenge?" required></textarea></label>
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="brief-actions">
+          <button class="send" type="submit" data-cursor="Send"><span>Send brief</span> <i>→</i></button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <aside class="brief-side">
+        <div><span class="label">Response</span><span>Within 48 hours</span></div>
+        <div><span class="label">Availability</span><span><i class="dot"></i> Open for new work</span></div>
+        <div><span class="label">What happens next</span>
+          <ol class="next-steps">
+            <li>I read your brief personally.</li>
+            <li>A short call to understand the business.</li>
+            <li>A clear proposal — scope, timeline and price.</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+
     <div class="contact-grid">
       <div><span class="label">Social</span>
         <a href="https://www.instagram.com/mozakydesign/" target="_blank" rel="noopener">Instagram</a>
@@ -163,5 +224,6 @@
   <script src="js/projects.js"></script>
   <script src="js/common.js"></script>
   <script src="js/home.js"></script>
+  <script src="js/contact.js"></script>
 </body>
 </html>
